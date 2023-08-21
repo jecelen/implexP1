@@ -3,11 +3,6 @@ import formataTabela as out
 import numpy as np
 import heap as hp
 
-
-def geraVetor():
-    np.random.seed()
-    return np.random.randint(0, 20000, i)
-
 def tempoAlg(vetorAleatorio, algoritmo):
     return algoritmo(vetorAleatorio)
 
@@ -25,13 +20,10 @@ for i in range(inc, fim+1, stp):
     tempoHeap = 0
     dados = []
     for j in range(10):
-        vetorAleatorio = geraVetor()
+        vetorAleatorio = out.geraVetor(i)
         tempoInsertion += tempoAlg(vetorAleatorio, ins.insertionSort)
         tempoHeap += tempoAlg(vetorAleatorio, hp.heapsort)
-    mediaInsertion = media(tempoInsertion)
-    mediaHeap = media(tempoHeap)
     dados.append(i)
-    dados.append(mediaInsertion)
-    dados.append(mediaHeap)
+    dados = out.calculaMedias(tempoInsertion, tempoHeap, dados)
     out.table(dados)
     

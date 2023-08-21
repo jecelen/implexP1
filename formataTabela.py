@@ -1,3 +1,15 @@
+import numpy as np
+
+def calculaMedias(insertion, heap, dados):
+    dados.append(insertion/10)
+    dados.append(heap/10)
+    return dados
+
+
+def geraVetor(n):
+    np.random.seed()
+    return np.random.randint(0, 20000, n)
+
 def formatarTabelaOutput(colunas):
     print("[[RANDOM]]\n")
     #cabecalho = ["n", "Insertion", "Merge", "Heap", "Quick", "Counting"]
