@@ -9,21 +9,18 @@ def tempoAlg(vetorAleatorio, algoritmo):
 def media(tempo):
     return tempo/10
 
-#definicao do n inicial e final e do tamanho do passo
-inc = 100
-fim = 1000
-stp = 10
-
-
-for i in range(inc, fim+1, stp):
-    tempoInsertion = 0
-    tempoHeap = 0
-    dados = []
-    for j in range(10):
-        vetorAleatorio = out.geraVetor(i)
-        tempoInsertion += tempoAlg(vetorAleatorio, ins.insertionSort)
-        tempoHeap += tempoAlg(vetorAleatorio, hp.heapsort)
-    dados.append(i)
-    dados = out.calculaMedias(tempoInsertion, tempoHeap, dados)
-    out.table(dados)
+def problema(inc, fim, stp, rpt):
+    print("\n[[RANDOM]]\n")
+    out.gerarCabecalho()
+    for i in range(inc, fim+1, stp):
+        tempoInsertion = 0
+        tempoHeap = 0
+        dados = []
+        for j in range(10):
+            vetorAleatorio = out.geraVetor(i)
+            tempoInsertion += tempoAlg(vetorAleatorio, ins.insertionSort)
+            tempoHeap += tempoAlg(vetorAleatorio, hp.heapsort)
+        dados.append(i)
+        dados = out.calculaMedias(tempoInsertion, tempoHeap, dados)
+        out.table(dados)
     
