@@ -2,9 +2,8 @@ import insertion as ins
 import formataTabela as out
 import numpy as np
 import heap as hp
-import time
 
-start = time.time()
+
 def geraVetor():
     np.random.seed()
     return np.random.randint(0, 20000, i)
@@ -35,7 +34,4 @@ for i in range(inc, fim+1, stp):
     dados.append(mediaInsertion)
     dados.append(mediaHeap)
     out.table(dados)
-
-end = time.time()
-print(end-start)
     
