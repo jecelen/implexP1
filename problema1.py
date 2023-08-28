@@ -1,16 +1,14 @@
-import insertionAndSelection as ins
+import algoritmosOrdenacao.insertion as ins
+import algoritmosOrdenacao.merge as merge
+import algoritmosOrdenacao.heap as hp
+import algoritmosOrdenacao.selection as selec
 import funcoesAuxiliares as aux
-import numpy as np
-import heap as hp
-import merge as mer
-
-def tempoAlg(vetorAleatorio, algoritmo): #essa função se repete em todos os problemas, podemos jogar ela pro arquivo "funcoesaux"
-    return algoritmo(vetorAleatorio)
+import formatacaoTabela as ft
 
 
 def problema(inc, fim, stp, rpt):
     print("\n[[RANDOM]]\n")
-    aux.gerarCabecalho()
+    ft.gerarCabecalho()
     for i in range(inc, fim+1, stp):
         tempoInsertion = 0
         tempoHeap = 0
@@ -19,11 +17,11 @@ def problema(inc, fim, stp, rpt):
         dados = []
         for j in range(10):
             vetorAleatorio = aux.geraVetor(i)
-            tempoInsertion += tempoAlg(vetorAleatorio, ins.insertionSort)
-            tempoHeap += tempoAlg(vetorAleatorio, hp.heapsort)
-            tempoMerge += tempoAlg(vetorAleatorio, mer.mergeSort)
-            tempoSelec += tempoAlg(vetorAleatorio, ins.selection_sort)
+            tempoInsertion += aux.tempoAlg(vetorAleatorio, ins.insertionSort)
+            tempoHeap += aux.tempoAlg(vetorAleatorio, hp.heapsort)
+            tempoMerge += aux.tempoAlg(vetorAleatorio, merge.mergeSort)
+            tempoSelec += aux.tempoAlg(vetorAleatorio, selec.selection_sort)
         dados.append(i)
         dados = aux.calculaMedias(tempoInsertion, tempoHeap, tempoMerge, tempoSelec, dados)
-        aux.table(dados)
+        ft.table(dados)
     
