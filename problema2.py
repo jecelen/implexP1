@@ -1,7 +1,11 @@
+#Problema em que os algoritmos ordenam um vetor já ordenado de forma decrescente
+
 import algoritmosOrdenacao.insertion as ins
 import algoritmosOrdenacao.merge as merge
 import algoritmosOrdenacao.heap as hp
 import algoritmosOrdenacao.selection as selec
+import algoritmosOrdenacao.counting as coun
+import algoritmosOrdenacao.quick as quick
 import funcoesAuxiliares as aux
 import formatacaoTabela as ft
 
@@ -17,7 +21,7 @@ def problema(inc, fim, stp, rpt):
         dados = []
         for j in range(rpt):
             vetorAleatorio = aux.geraVetor(i)
-            vetorReverso = sorted(vetorAleatorio, reverse=True) #aplicação de função propria para gerar vetor reverso
+            vetorReverso = sorted(vetorAleatorio, reverse=True) #aplicação de função própria para gerar vetor decrescente
             tempoInsertion += aux.tempoAlg(vetorReverso, ins.insertionSort)
             tempoHeap += aux.tempoAlg(vetorReverso, hp.heapsort)
             tempoMerge += aux.tempoAlg(vetorReverso, merge.mergeSort)
