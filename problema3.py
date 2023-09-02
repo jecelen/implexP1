@@ -24,13 +24,13 @@ def problema(inc, fim, stp, rpt):
         dados = []
         for j in range(rpt):
             vetorAleatorio = aux.geraVetor(i)
-            vetorReverso = sorted(vetorAleatorio, reverse=False) #aplicação de função própria para gerar vetor ordenado crescente
-            tempoInsertion += aux.tempoAlg(vetorReverso, ins.insertionSort)
-            tempoHeap += aux.tempoAlg(vetorAleatorio, hp.heapsort)
-            tempoMerge += aux.tempoAlg(vetorAleatorio, merge.mergeSort)
-            tempoSelec += aux.tempoAlg(vetorAleatorio, selec.selection_sort)
-            tempoCount += aux.tempoAlg(vetorAleatorio, coun.counting_sort)
-            tempoQuick += quick.quick_sort(vetorAleatorio, 0, len(vetorAleatorio) -1)
+            vetorOrd = sorted(vetorAleatorio, reverse=False) #aplicação de função própria para gerar vetor ordenado crescente
+            tempoInsertion += aux.tempoAlg(vetorOrd, ins.insertionSort)
+            tempoHeap += aux.tempoAlg(vetorOrd, hp.heapsort)
+            tempoMerge += aux.tempoAlg(vetorOrd, merge.mergeSort)
+            tempoSelec += aux.tempoAlg(vetorOrd, selec.selection_sort)
+            tempoCount += aux.tempoAlg(vetorOrd, coun.counting_sort)
+            tempoQuick += quick.quick_sort(vetorOrd, 0, len(vetorOrd) -1)
         dados.append(i)
         dados = aux.calculaMedias(tempoInsertion, tempoHeap, tempoMerge, tempoSelec, tempoCount, tempoQuick, dados)
         ft.table(dados)
