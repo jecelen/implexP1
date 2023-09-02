@@ -4,7 +4,7 @@ def partition(arr, low, high):
     pivot = arr[high]  # Escolha do pivô
     i = low - 1  # Índice do elemento menor
 
-    for j in range(low, high):
+    for j in range(low, high-1):   #pode ser "high-1" ou nao
         if arr[j] <= pivot:
             i += 1
             arr[i], arr[j] = arr[j], arr[i]  # Troca de elementos
@@ -19,6 +19,7 @@ def quick_sort(arr, low, high):
 
         quick_sort(arr, low, pivot_index - 1)  # Ordena os elementos menores que o pivô
         quick_sort(arr, pivot_index + 1, high)  # Ordena os elementos maiores que o pivô
+
     endTime = time.time()
     tempoExec = (endTime-start)
     return tempoExec

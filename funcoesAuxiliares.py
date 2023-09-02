@@ -19,4 +19,15 @@ def geraVetor(n):
     return np.random.randint(0, 20000, n)
 
 
+#recebe um vetor e ordena apenas 10% dele, sendo esses 10% no início
+def ordenacaoParcial(vetor):   
+    # Calcula o tamanho do vetor 10%
+    tamanho_10_porcento = len(vetor) // 10
+    
+    # Ordena apenas os primeiros 10% do vetor
+    vetor[:tamanho_10_porcento] = sorted(vetor[:tamanho_10_porcento])
+    
+    return vetor
+
+
 

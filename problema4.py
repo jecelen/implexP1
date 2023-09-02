@@ -12,7 +12,7 @@ import sys
 
 sys.setrecursionlimit(10000)
 def problema(inc, fim, stp, rpt):
-    print("\n\n[[ORDENADO]]\n")
+    print("\n\n[[PARCIALMENTE ORDENADO]]\n")
     ft.gerarCabecalho()
     for i in range(inc, fim+1, stp):
         tempoInsertion = 0
@@ -24,13 +24,13 @@ def problema(inc, fim, stp, rpt):
         dados = []
         for j in range(rpt):
             vetorAleatorio = aux.geraVetor(i)
-            vetorReverso = sorted(vetorAleatorio, reverse=False) #aplicação de função própria para gerar vetor ordenado crescente
-            tempoInsertion += aux.tempoAlg(vetorReverso, ins.insertionSort)
-            tempoHeap += aux.tempoAlg(vetorAleatorio, hp.heapsort)
-            tempoMerge += aux.tempoAlg(vetorAleatorio, merge.mergeSort)
-            tempoSelec += aux.tempoAlg(vetorAleatorio, selec.selection_sort)
-            tempoCount += aux.tempoAlg(vetorAleatorio, coun.counting_sort)
-            tempoQuick += quick.quick_sort(vetorAleatorio, 0, len(vetorAleatorio) -1)
+            vetorOrdenadoParial = aux.ordenacaoParcial(vetorAleatorio)
+            tempoInsertion += aux.tempoAlg(vetorOrdenadoParial, ins.insertionSort)
+            tempoHeap += aux.tempoAlg(vetorOrdenadoParial, hp.heapsort)
+            tempoMerge += aux.tempoAlg(vetorOrdenadoParial, merge.mergeSort)
+            tempoSelec += aux.tempoAlg(vetorOrdenadoParial, selec.selection_sort)
+            tempoCount += aux.tempoAlg(vetorOrdenadoParial, coun.counting_sort)
+            tempoQuick += quick.quick_sort(vetorOrdenadoParial, 0, len(vetorOrdenadoParial) -1)
         dados.append(i)
         dados = aux.calculaMedias(tempoInsertion, tempoHeap, tempoMerge, tempoSelec, tempoCount, tempoQuick, dados)
         ft.table(dados)
