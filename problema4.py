@@ -1,4 +1,4 @@
-#Problema em que os algoritmos ordenam um vetor já ordenado de forma crescente
+#Problema em que os algoritmos ordenam um vetor já  10% ordenado de forma crescente
 
 import algoritmosOrdenacao.insertion as ins
 import algoritmosOrdenacao.merge as merge

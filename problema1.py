@@ -1,5 +1,5 @@
 #Problema em que os algoritmos ordenam um vetor aleatório
-
+import sys
 import algoritmosOrdenacao.insertion as ins
 import algoritmosOrdenacao.merge as merge
 import algoritmosOrdenacao.heap as hp
@@ -9,7 +9,7 @@ import algoritmosOrdenacao.quick as quick
 import funcoesAuxiliares as aux
 import formatacaoTabela as ft
 
-
+sys.setrecursionlimit(10000)
 def problema(inc, fim, stp, rpt):
     print("\n[[RANDOM]]\n")
     ft.gerarCabecalho()
