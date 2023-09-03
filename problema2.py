@@ -7,13 +7,18 @@ import algoritmosOrdenacao.selection as selec
 import algoritmosOrdenacao.counting as coun
 import algoritmosOrdenacao.quick as quick
 import funcoesAuxiliares as aux
-import formatacaoTabela as ft
-import sys
+import formatacaoOutput as ft
 
-sys.setrecursionlimit(10000)
 def problema(inc, fim, stp, rpt):
     print("\n\n[[REVERSE]]\n")
     ft.gerarCabecalho()
+    tamVetores = []
+    temposIns = []
+    temposHeap = []
+    temposMerge = []
+    temposSelec = []
+    temposCount = []
+    temposQuick = []
     for i in range(inc, fim+1, stp):
         tempoInsertion = 0
         tempoHeap = 0
@@ -27,11 +32,13 @@ def problema(inc, fim, stp, rpt):
             vetorReverso = sorted(vetorAleatorio, reverse=True) #aplicação de função própria para gerar vetor decrescente
             tempoInsertion += aux.tempoAlg(vetorReverso, ins.insertionSort)
             tempoHeap += aux.tempoAlg(vetorReverso, hp.heapsort)
-            tempoMerge += aux.tempoAlg(vetorReverso, merge.mergeSort)
+            tempoMerge += aux.tempoAlg(vetorReverso, merge.tempoMerge)
             tempoSelec += aux.tempoAlg(vetorReverso, selec.selection_sort)
             tempoCount += aux.tempoAlg(vetorReverso, coun.counting_sort)
-            tempoQuick += quick.quick_sort(vetorReverso, 0, len(vetorReverso) -1)
+            tempoQuick += aux.tempoAlg(vetorReverso, quick.quicksort)
         dados.append(i)
-        dados = aux.calculaMedias(tempoInsertion, tempoHeap, tempoMerge, tempoSelec, tempoCount, tempoQuick, dados)
+        tamVetores.append(i)
+        dados = aux.calculaMedias(tempoInsertion, tempoHeap, tempoMerge, tempoSelec, tempoCount, tempoQuick, dados, temposIns, temposHeap, temposMerge, temposSelec, temposCount, temposQuick)
         ft.table(dados)
-    
+
+    ft.geraGrafico(tamVetores, temposSelec, temposIns, temposMerge, temposHeap, temposQuick, temposCount)

@@ -1,4 +1,5 @@
 import time
+import sys
 
 def pai(pos):
   if pos == 0:
@@ -31,6 +32,7 @@ def desceHeap(vetor, n, i):
   
   
 def heapsort(vetor):
+    sys.setrecursionlimit(10000)
     start = time.time()
     n = len(vetor)
     i = n

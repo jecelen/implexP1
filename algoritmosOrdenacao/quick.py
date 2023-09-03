@@ -1,30 +1,38 @@
 import time
+import random
+import sys
 
 def partition(arr, low, high):
-    pivot = arr[high]  # Escolha do pivô
-    i = low - 1  # Índice do elemento menor
+    random_index = random.randint(low, high)
 
-    for j in range(low, high-1):
+    arr[random_index], arr[high] = arr[high], arr[random_index]
+    pivot = arr[high] 
+    i = low - 1 
+    for j in range(low, high):
         if arr[j] <= pivot:
             i = i+1
             aux = arr[i]
             arr[i] = arr[j]
             arr[j] = aux
-    arr[i + 1], arr[high] = arr[high], arr[i + 1]
     aux = arr[i+1]
     arr[i+1] = arr[high]
-    arr[high] = aux  # Coloca o pivô no lugar correto
+    arr[high] = aux 
     return i + 1
 
 def quick_sort(arr, low, high):
-    start = time.time()
     if low < high:
-        pivot_index = partition(arr, low, high)  # Encontra o índice do pivô correto
-        quick_sort(arr, low, pivot_index - 1)  # Ordena os elementos menores que o pivô
-        quick_sort(arr, pivot_index + 1, high)  # Ordena os elementos maiores que o pivô
+        pivot_index = partition(arr, low, high)  
+        quick_sort(arr, low, pivot_index - 1) 
+        quick_sort(arr, pivot_index + 1, high)
+
+def quicksort(arr):
+    sys.setrecursionlimit(10000)
+    start = time.time()
+    quick_sort(arr, 0, len(arr)-1)
     endTime = time.time()
-    tempoExec = (endTime-start)
-    return tempoExec
+    tempo = endTime - start
+    return tempo
+
 
 
 

@@ -1,7 +1,7 @@
 import time
+import sys
 
 def mergeSort(arr):
-    start = time.time()
     if len(arr) > 1:
         mid = len(arr) // 2
         L = arr[:mid]
@@ -31,8 +31,13 @@ def mergeSort(arr):
             j += 1
             k += 1
     
+    
+
+def tempoMerge(arr):
+    sys.setrecursionlimit(10000)
+    start= time.time()
+    mergeSort(arr)
     endTime = time.time()
-    tempoExec = (endTime-start)
-    return tempoExec
+    return (endTime - start)
 
 
