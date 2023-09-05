@@ -1,4 +1,4 @@
-#Problema em que os algoritmos ordenam um vetor já ordenado de forma crescente
+#Problema em que os algoritmos ordenam um vetor já ordenado de forma crescente.
 
 import algoritmosOrdenacao.insertion as ins
 import algoritmosOrdenacao.merge as merge
@@ -13,7 +13,7 @@ def addListaTempo(tempo, lista):
     return lista.append(tempo)
 
 def problema(inc, fim, stp, rpt):
-    print("\n\n[[ORDENADO]]\n")
+    print("\n\n[[SORTED]]\n")
     ft.gerarCabecalho()
     tamVetores = []
     temposIns = []
@@ -22,6 +22,7 @@ def problema(inc, fim, stp, rpt):
     temposSelec = []
     temposCount = []
     temposQuick = []
+    #Laço que representa os tamanhos de entradas (inc = início, fim = final -1, stp = distância entre eles).
     for i in range(inc, fim+1, stp):
         dados = []
         vetorAleatorio = aux.geraVetor(i)

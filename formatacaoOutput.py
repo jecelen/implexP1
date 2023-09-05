@@ -33,8 +33,7 @@ def geraGrafico(tamVetores, temposSelec, temposIns, temposMerge, temposHeap, tem
 
     plt.xlabel('N')
     plt.ylabel('Tempo de ordenação')
-    #plt.legend("Gráfico que representa o tempo de ordenação de cada algoritmo em relação a diversos vetores diferentes")
-
+    
     plt.title('Tempo de execução X Diferetes tamanhos de entradas')
     plt.grid(True)
     plt.show()
