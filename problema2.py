@@ -1,4 +1,4 @@
-#Problema em que os algoritmos ordenam um vetor já ordenado de forma decrescente
+#Problema em que os algoritmos ordenam um vetor já ordenado de forma decrescente.
 
 import algoritmosOrdenacao.insertion as ins
 import algoritmosOrdenacao.merge as merge
@@ -12,6 +12,7 @@ import formatacaoOutput as ft
 def problema(inc, fim, stp, rpt):
     print("\n\n[[REVERSE]]\n")
     ft.gerarCabecalho()
+    #Os Vetores abaixo irão armazenar os dados necessários para a construção dos gráficos.
     tamVetores = []
     temposIns = []
     temposHeap = []
@@ -19,6 +20,7 @@ def problema(inc, fim, stp, rpt):
     temposSelec = []
     temposCount = []
     temposQuick = []
+    #Laço que representa os tamanhos de entradas (inc = início, fim = final -1, stp = distância entre eles).
     for i in range(inc, fim+1, stp):
         tempoInsertion = 0
         tempoHeap = 0
@@ -27,6 +29,7 @@ def problema(inc, fim, stp, rpt):
         tempoCount = 0
         tempoQuick = 0
         dados = []
+        #laço que representa quantos testes serão feitos para posteriormente calcular a média
         for j in range(rpt):
             vetorAleatorio = aux.geraVetor(i)
             vetorReverso = sorted(vetorAleatorio, reverse=True) #aplicação de função própria para gerar vetor decrescente
@@ -38,7 +41,9 @@ def problema(inc, fim, stp, rpt):
             tempoQuick += aux.tempoAlg(vetorReverso, quick.quicksort)
         dados.append(i)
         tamVetores.append(i)
-        dados = aux.calculaMedias(tempoInsertion, tempoHeap, tempoMerge, tempoSelec, tempoCount, tempoQuick, dados, temposIns, temposHeap, temposMerge, temposSelec, temposCount, temposQuick)
+        dados = aux.calculaMedias(rpt, tempoInsertion, tempoHeap, tempoMerge, tempoSelec, tempoCount, tempoQuick, dados, temposIns, temposHeap, temposMerge, temposSelec, temposCount, temposQuick)
         ft.table(dados)
 
-    ft.geraGrafico(tamVetores, temposSelec, temposIns, temposMerge, temposHeap, temposQuick, temposCount)
+
+    #Função que gera gráfico
+    #ft.geraGrafico(tamVetores, temposSelec, temposIns, temposMerge, temposHeap, temposQuick, temposCount)
